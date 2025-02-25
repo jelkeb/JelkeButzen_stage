@@ -100,9 +100,10 @@ ggplot(df_selected, aes(x = decrease_by_year)) +
             aes(y = ..count..), stat = "bin", color = "pink", size = 1)+
   geom_line(data = df_selected[df_selected$cholesterol == 1, ], 
             aes(y = ..count..), stat = "bin", color = "yellow", size = 1)+
-  geom_line(data = df_selected[df_selected$sight == 1, ], #1 of -1??????
+  geom_line(data = df_selected[df_selected$sight == 1, ], #1 of -1?????? -> slecht is ja: 1
             aes(y = ..count..), stat = "bin", color = "blue", size = 1)+
   labs(
     x = "Average cognitive deterioration per year",
     y = "Number of people ", 
   )
+
