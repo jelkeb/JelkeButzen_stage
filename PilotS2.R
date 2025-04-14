@@ -5,7 +5,16 @@ TS_feb <- read_excel("TS feb.xlsx", col_types = c("text",
                                                   "numeric"))
 View(TS_feb)
 
+<<<<<<< HEAD
 install.packages("ggtext")
+=======
+install.packages("ggplot2")
+install.packages("dplyr")
+install.packages("ggtext")
+
+library(ggplot2)
+library(dplyr)
+>>>>>>> 368c69e (final)
 library(ggtext)
 
 # boxplot concentraties
@@ -77,22 +86,41 @@ wilcox.test(`RINe` ~ mani, data = RIN_SS)
 ggplot(TS_feb %>% filter(!is.na(`MW (g/mol)`)), 
        aes(x = interaction(type, mani), 
            y = `MW (g/mol)`)) +
+<<<<<<< HEAD
   geom_boxplot(width = 1, position = position_dodge(width = 0.5)) + 
   labs(x = " ", 
        y = "MW (g/mol)", ) +
   theme(axis.text.x = element_blank())+
   theme_minimal()
+=======
+  geom_boxplot(width = 0.9, position = position_dodge(width = 0.5)) + 
+  labs(x = " ", 
+       y = "MW (g/mol)", ) +
+  theme(axis.text.x = element_blank())+
+  theme_minimal()+
+  theme(axis.text.x = element_markdown(size = 12),
+        axis.text.y = element_text(size = 10),
+        axis.title.y = element_text(size = 16))
+>>>>>>> 368c69e (final)
 
 #significante test uitvoeren --> L en L
 MW_LL <- TS_feb %>%
   filter(type == "Long", !is.na(`MW (g/mol)`)) %>%
+<<<<<<< HEAD
   select(type, mani, `RINe`)
+=======
+  select(type, mani, `MW (g/mol)`)
+>>>>>>> 368c69e (final)
 wilcox.test(`MW (g/mol)` ~ mani, data = MW_LL)
 
 #significante test uitvoeren --> S en S
 MW_SS <- TS_feb %>%
   filter(type == "Short", !is.na(`MW (g/mol)`)) %>%
+<<<<<<< HEAD
   select(type, mani, `RINe`)
+=======
+  select(type, mani, `MW (g/mol)`)
+>>>>>>> 368c69e (final)
 wilcox.test(`MW (g/mol)` ~ mani, data = MW_SS)
 
 

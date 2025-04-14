@@ -11,7 +11,11 @@ df_zonder_MOCA_NA <- df[!is.na(df$MOCA), ]
 df_zonder_MOCA_NA$verschil_cogn_test<- df_zonder_MOCA_NA$`MMSE`- df_zonder_MOCA_NA$`MOCA`
 
 #verschil berekenen tussen data van afname cognitieve test
+<<<<<<< HEAD
 df_zonder_MOCA_NA$verschil_dag_testafn <- df_zonder_MOCA_NA$`MOCA_date`- df_zonder_MOCA_NA$`MMSE_date`
+=======
+df_zonder_MOCA_NA$verschil_dag_testafn <- df_zonder_MOCA_NA$`MMSE_date`- df_zonder_MOCA_NA$`MOCA_date`
+>>>>>>> 368c69e (final)
 
 #verschil van dagen naar jaren zetten
 df_zonder_MOCA_NA$verschil_jaar_testafn <- (df_zonder_MOCA_NA$`verschil_dag_testafn`/(365))
@@ -166,6 +170,7 @@ breuk_res_f <- paste("city:", res_f, "/", n_women, " (",
                      round((res_f/n_women*100), 2), "%)", 
                      sep = "")
 
+<<<<<<< HEAD
 drank_m <- nrow(df_men[df_men$alcohol_units %in% c("10-15_u/w","15-20_u/w",">20_u/w"), ])
 drank_f <-nrow(df_women[df_women$alcohol_units %in% c("10-15_u/w","15-20_u/w",">20_u/w"), ])
 breuk_drank_m <- paste(drank_m, "/", n_men, " (", 
@@ -173,6 +178,15 @@ breuk_drank_m <- paste(drank_m, "/", n_men, " (",
                      sep = "")
 breuk_drank_f <- paste(drank_f, "/", n_women, " (", 
                      round((res_f/n_women*100), 2), "%)", 
+=======
+drank_m <- nrow(df_men[df_men$alcohol_units %in% c(">20_u/w"), ])
+drank_f <-nrow(df_women[df_women$alcohol_units %in% c(">20_u/w"), ])
+breuk_drank_m <- paste(drank_m, "/", n_men, " (", 
+                     round((drank_m/n_men*100), 2), "%)",
+                     sep = "")
+breuk_drank_f <- paste(drank_f, "/", n_women, " (", 
+                     round((drank_f/n_women*100), 2), "%)", 
+>>>>>>> 368c69e (final)
                      sep = "")
 
 #gemiddeldes
@@ -180,6 +194,11 @@ breuk_drank_f <- paste(drank_f, "/", n_women, " (",
 
 Z <- 1.96
 
+<<<<<<< HEAD
+=======
+
+average_age_men_MOCA <- mean(df_men$age_at_MOCA, na.rm = TRUE)
+>>>>>>> 368c69e (final)
 std_dev_men_MOCA <- sd(df_men$age_at_MOCA)
 ci_men <- paste(round(average_age_men_MOCA, 2), " (", 
                 round(average_age_men_MOCA - Z * (std_dev_men_MOCA / sqrt(n_men)), 2), "-", 
@@ -187,13 +206,21 @@ ci_men <- paste(round(average_age_men_MOCA, 2), " (",
                 sep = "")
 
 
+<<<<<<< HEAD
+=======
+average_age_women_MOCA <- mean(df_women$age_at_MOCA, na.rm = TRUE)
+>>>>>>> 368c69e (final)
 std_dev_women_MOCA <- sd(df_women$age_at_MOCA)
 ci_women <- paste(round(average_age_women_MOCA, 2), " (", 
                   round(average_age_women_MOCA - Z * (std_dev_women_MOCA / sqrt(n_women)), 2), "-", 
                   round(average_age_women_MOCA + Z * (std_dev_women_MOCA / sqrt(n_women)), 2), ")", 
                   sep = "")
 
+<<<<<<< HEAD
 
+=======
+average_MMSE_men <- mean(df_men$MMSE, na.rm = TRUE)
+>>>>>>> 368c69e (final)
 std_dev_MMSE_men <- sd(df_men$MMSE)
 ci_men_MMSE <- paste(round(average_MMSE_men, 2), " (", 
                      round(average_MMSE_men - Z * (std_dev_MMSE_men/sqrt(n_men)), 2), "-", 
@@ -201,6 +228,10 @@ ci_men_MMSE <- paste(round(average_MMSE_men, 2), " (",
                      sep="")
 
 
+<<<<<<< HEAD
+=======
+average_MMSE_women <- mean(df_women$MMSE, na.rm = TRUE)
+>>>>>>> 368c69e (final)
 std_dev_MMSE_women <- sd(df_women$MMSE,na.rm = TRUE )
 ci_women_MMSE <- paste(round(average_MMSE_women, 2), " (", 
                        round(average_MMSE_women - Z * (std_dev_MMSE_women/sqrt(n_women)), 2), "-", 
@@ -208,6 +239,10 @@ ci_women_MMSE <- paste(round(average_MMSE_women, 2), " (",
                        sep="")
 
 
+<<<<<<< HEAD
+=======
+average_MOCA_men <- mean(df_men$MOCA, na.rm = TRUE)
+>>>>>>> 368c69e (final)
 std_dev_MOCA_men <- sd(df_men$MOCA)
 ci_men_MOCA <- paste(round(average_MOCA_men, 2), " (", 
                        round(average_MOCA_men - Z * (std_dev_MOCA_men/sqrt(n_men)), 2), "-", 
@@ -215,14 +250,23 @@ ci_men_MOCA <- paste(round(average_MOCA_men, 2), " (",
                        sep="")
 
 
+<<<<<<< HEAD
 std_dev_MOCA_women <- sd(df_women$MOCA,na.rm = TRUE )
+=======
+average_MOCA_women <- mean(df_women$MOCA, na.rm = TRUE)
+std_dev_MOCA_women <- sd(df_women$MOCA, na.rm = TRUE)
+>>>>>>> 368c69e (final)
 ci_women_MOCA <- paste(round(average_MOCA_women, 2), " (", 
                        round(average_MOCA_women - Z * (std_dev_MOCA_women/sqrt(n_women)), 2), "-", 
                        round(average_MOCA_women + Z * (std_dev_MOCA_women/sqrt(n_women)), 2), ")", 
                        sep="")
 
 
+<<<<<<< HEAD
 average_age_men_MMSE <- mean(df_men$age_at_MMSE)
+=======
+average_age_men_MMSE <- mean(df_men$age_at_MMSE, na.rm = TRUE)
+>>>>>>> 368c69e (final)
 std_dev_men_MMSE <- sd(df_men$age_at_MMSE)
 ci_men_age_MMSE <- paste(round(average_age_men_MMSE, 2), " (", 
                          round(average_age_men_MMSE - Z * (std_dev_men_MMSE / sqrt(n_men)), 2), "-", 
@@ -311,7 +355,11 @@ breuk_res_total <- paste("city: ", res_total, "/", n_total, " (",
                          round((res_total/n_total*100), 2), "%)", 
                          sep = "")
 
+<<<<<<< HEAD
 drank_total <- nrow(df_total[df_total$alcohol_units %in% c("10-15_u/w","15-20_u/w",">20_u/w"), ])
+=======
+drank_total <- nrow(df_total[df_total$alcohol_units %in% c(">20_u/w"), ])
+>>>>>>> 368c69e (final)
 breuk_drank_total <- paste(drank_total, "/", n_total, " (", 
                            round((drank_total/n_total*100), 2), "%)", 
                            sep = "")
@@ -362,7 +410,11 @@ ci_MOCA <- paste(round(average_MOCA_score, 2), " (",
 
 
 df_total <- df_total %>%
+<<<<<<< HEAD
   mutate(decrease_by_year = (average_MMSE_score - average_MOCA_score) / (Year_MOCA - Year_MMSE))
+=======
+  mutate(decrease_by_year = (average_MMSE_score - average_MOCA_score) / (Year_MMSE - Year_MOCA))
+>>>>>>> 368c69e (final)
 
 average_decrease_total <- round(mean(df_total$decrease_by_year, na.rm = TRUE), 5)
 
@@ -396,7 +448,11 @@ tabel_data |>
   ) |> 
   tab_style(
     style = cell_text(color = "purple"),
+<<<<<<< HEAD
     locations = cells_body(columns = Variable, rows = Variable == "Vision loss")
+=======
+    locations = cells_body(columns = Variable, rows = Variable == "Physical inactivity")
+>>>>>>> 368c69e (final)
   ) |> 
   tab_style(
     style = cell_text(color = "gold"),
@@ -416,11 +472,19 @@ tabel_data |>
   ) |> 
   tab_style(
     style = cell_text(color = "green"),
+<<<<<<< HEAD
     locations = cells_body(columns = Variable, rows = Variable == "Excessive alcohol consumption")
   ) |> 
   tab_style(
     style = cell_text(color = "purple"),
     locations = cells_body(columns = Total, rows = Variable == "Vision loss")
+=======
+    locations = cells_body(columns = Variable, rows = Variable == "Obesity")
+  ) |> 
+  tab_style(
+    style = cell_text(color = "purple"),
+    locations = cells_body(columns = Total, rows = Variable == "Physical inactivity")
+>>>>>>> 368c69e (final)
   ) |> 
   tab_style(
     style = cell_text(color = "gold"),
@@ -440,7 +504,11 @@ tabel_data |>
   ) |> 
   tab_style(
     style = cell_text(color = "green"),
+<<<<<<< HEAD
     locations = cells_body(columns = Total, rows = Variable == "Excessive alcohol consumption")
+=======
+    locations = cells_body(columns = Total, rows = Variable == "Obesity")
+>>>>>>> 368c69e (final)
   )
 
 
@@ -453,7 +521,13 @@ install.packages("survival")
 library(survival)
 t.test(decrease_by_year ~ gender, data = df_zonder_MOCA_NA, alternative = "two.sided", var.equal = TRUE)
 
+<<<<<<< HEAD
 
+=======
+library(car)
+
+leveneTest(decrease_by_year ~ gender, data = df_zonder_MOCA_NA)
+>>>>>>> 368c69e (final)
 
 
 #multiple regression
@@ -477,7 +551,15 @@ coefs <- model_summary$coefficients[, 1]
 std_errors <- model_summary$coefficients[, 2] 
 t_stats <- model_summary$coefficients[, 3]  
 p_values <- model_summary$coefficients[, 4] 
+<<<<<<< HEAD
 
+=======
+f_statistic <- model_summary$fstatistic[1]
+f_p_value <- pf(f_statistic, model_summary$fstatistic[2], model_summary$fstatistic[3], lower.tail = FALSE)
+
+print(f_statistic)
+print(f_p_value)
+>>>>>>> 368c69e (final)
 
 coefs_tibble <- tibble(
   Variable = c("Intercept", "Gender", "Smoking","Vision loss", "Hearing loss", "High LDL cholesterol", "Low education", "Social isolation", "Depression", "Brain injury", "Physical inactivity", "Diabetes", "Hypertension", "Obesity", "Age at MMSE", "Age at MoCA"),
@@ -487,6 +569,11 @@ coefs_tibble <- tibble(
 )
 
 
+<<<<<<< HEAD
+=======
+
+#print te tabel
+>>>>>>> 368c69e (final)
 library(gt)
 library(dplyr)
 
@@ -497,4 +584,72 @@ coefs_tibble |>
   )
 
 
+<<<<<<< HEAD
+=======
+#hier terug multiple regression (hoge waarden verwijderd)
+numeric_columns2 <- sapply(df_zonder_MOCA_NA, is.numeric)
+numeric_data2 <- df_zonder_MOCA_NA[, numeric_columns2]
+
+
+linear_r_model2 = lm(formula = decrease_by_year ~ gender + sight + hearing_loss +
+                      education + depression + 
+                      brain_injury + exercise + diabetes +
+                      blood_pressure + age_at_MMSE + age_at_MOCA , 
+                    data = df_zonder_MOCA_NA)
+coefs2 <- coef(linear_r_model2)
+
+vcov_matrix2 <- vcov(linear_r_model2)
+std_errors2 <- sqrt(diag(vcov_matrix2))
+
+model_summary2 <- summary(linear_r_model2)
+
+coefs <- model_summary2$coefficients[, 1] 
+std_errors <- model_summary2$coefficients[, 2] 
+t_stats <- model_summary2$coefficients[, 3]  
+p_values <- model_summary2$coefficients[, 4] 
+f_statistic2 <- model_summary2$fstatistic[1]
+f_p_value2 <- pf(f_statistic2, model_summary2$fstatistic[2], model_summary2$fstatistic[3], lower.tail = FALSE)
+
+print(f_statistic2)
+print(f_p_value2)
+
+coefs_tibble2 <- tibble(
+  Variable = c("Intercept", "Gender","Vision loss", "Hearing loss", "Low education", "Depression", "Brain injury", "Physical inactivity", "Diabetes", "Hypertension","Age at MMSE", "Age at MoCA"),
+  Coefficient = round(coefs,4),
+  Std_Error = round(std_errors, 4),
+  p_value = round(p_values,4)
+)
+
+
+
+#print te tabel
+library(gt)
+library(dplyr)
+
+coefs_tibble2 |> 
+  gt() |> 
+  tab_header(
+    title = "test"
+  ) 
+
+
+
+#figuur gemaakt voor in onze ppt
+tabel_data_1 <- tibble(
+  Variable = c("Number of individuals","Average age at MMSE", "Average MMSE score", "Average age at MoCA", "Average MoCA score","Cognitive decline per year", 'Hearing loss', "High LDL cholesterol", "Physical inactivity", "Hypertension", "Obesity"),
+  Men = c(n_men,ci_men_age_MMSE,ci_men_MMSE,ci_men, ci_men_MOCA,average_decrease_m,breuk_hearing_loss_m, breuk_cholesterol_m, breuk_exercise_m, breuk_blood_pressure_m, breuk_obese_m),
+  Women = c(n_women,ci_women_age_MMSE,ci_women_MMSE,ci_women,ci_women_MOCA, average_decrease_f, breuk_hearing_loss_f,breuk_cholesterol_f, breuk_exercise_f,breuk_blood_pressure_f, breuk_obese_f),
+  Total = c(n_total,ci_total_age_MMSE,ci_MMSE,ci_total_age_MOCA,ci_MOCA, average_decrease_total,breuk_hearing_loss_total,breuk_cholesterol_total, breuk_exercise_total,breuk_blood_pressure_total, breuk_obese_total)
+)
+
+tabel_data_1 |> 
+  gt() |> 
+  tab_header(
+    title = "Cohort description"
+  ) |> 
+  tab_spanner(
+    label = "Gender",
+    columns = c(Men, Women)
+  )
+>>>>>>> 368c69e (final)
 

@@ -9,7 +9,11 @@ df$verschil_cogn_test<- df$`MMSE`- df$`MOCA`
 
 
 #verschil berekenen tussen data van afname cognitieve test
+<<<<<<< HEAD
 df$verschil_dag_testafn <- df$`MOCA_date`- df$`MMSE_date`
+=======
+df$verschil_dag_testafn <- df$`MMSE_date`- df$`MOCA_date`
+>>>>>>> 368c69e (final)
 
 #verschil van dagen naar jaren zetten
 df$verschil_jaar_testafn <- (df$`verschil_dag_testafn`/(365))
@@ -73,7 +77,11 @@ library(ggplot2)
 
 ggplot(df, aes(x = decrease_by_year)) +
   geom_histogram(color = "black", fill= "grey", binwidth=0.1)+
+<<<<<<< HEAD
   geom_line(data = df[df$sight == 1, ], 
+=======
+  geom_line(data = df[df$exercise == 1, ], 
+>>>>>>> 368c69e (final)
             aes(y = ..count..), stat = "bin", color = "purple", size = 1)+
   geom_line(data = df[df$hearing_loss == 1, ], 
             aes(y = ..count..), stat = "bin", color = "gold", size = 1)+
@@ -83,18 +91,29 @@ ggplot(df, aes(x = decrease_by_year)) +
             aes(y = ..count..), stat = "bin", color = "blue", size = 1)+
   geom_line(data = df[df$residence == "city", ], 
             aes(y = ..count..), stat = "bin", color = "pink", size = 1)+
+<<<<<<< HEAD
   geom_line(data = df[df$alcohol_units %in% c("10-15_u/w", "15-20_u/w", ">20_u/w"), ],
             aes(y = ..count..), stat = "bin", color = "green", size = 1)+
   labs(
     title = "Link between cognitive decline and risk factors",
+=======
+  geom_line(data = df[df$obese == 1, ],
+            aes(y = ..count..), stat = "bin", color = "green", size = 1)+
+  labs(
+>>>>>>> 368c69e (final)
     x = "Average cognitive decline per year",
     y = "Number of people ", 
     color = "blood pressure"
   ) +
   theme(
     plot.title = element_text(size = 12, hjust = 0.5),
+<<<<<<< HEAD
     axis.title.x = element_text(size = 11),  
     axis.title.y = element_text(size = 11),
+=======
+    axis.title.x = element_text(size = 14),  
+    axis.title.y = element_text(size = 14),
+>>>>>>> 368c69e (final)
     panel.background = element_rect(fill = "white"),
     panel.grid.major = element_line(color = "lightgrey", size = 0.2)
     )
